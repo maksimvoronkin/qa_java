@@ -23,6 +23,7 @@ public class CatTest {
     public void getFoodCatCorrectGoodTest() throws Exception {
         Cat cat = new Cat(feline);
         cat.getFood();
-        Mockito.verify(feline).eatMeat();
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 }
